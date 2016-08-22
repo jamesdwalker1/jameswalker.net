@@ -1,0 +1,94 @@
+.viewer h1 {
+	font-weight: lighter;
+	font-size: 2em;
+}
+
+.viewer h2 {
+	font-weight: lighter;
+	font-size: 1.6em;
+	page-break-after: avoid;
+}
+
+.viewer code {
+    font-family: 'Open Sans', 'Cambria Math', sans-serif;
+}
+
+.viewer code, .viewer .MathJax {
+    color: #B20000 !important;
+}
+
+.viewer ul {
+    page-break-before: avoid;
+}
+
+.viewer .todo {
+	color: green;
+	font-weight: bolder;
+}
+
+.viewer .todo {
+	display: none;
+}
+
+.viewer .marker {
+	color: #448AFF;
+	font-weight: bolder;
+}
+
+#editor .marker {
+	cursor: pointer;
+	transition: .2s;
+	font-weight: bolder;
+}
+
+#editor .marker:hover {
+	color: white;
+	background: #F44336;
+}
+
+.viewer img {
+    border: 1px solid #AFAFAF;
+    border-radius: 3px;
+    padding: 5px;
+    background: white;
+    margin: 2px;
+    max-width: 650px;
+}
+
+.viewer .tex {
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0;
+  margin: 0;
+}
+
+.viewer hr {
+  border: 2px solid #F44336;
+}
+
+.viewer .supsub-container {
+  position: absolute;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.viewer .sup {
+  font-size: 50%;
+  vertical-align: super;
+  position: absolute;
+}
+
+.viewer .sub {
+  font-size: 50%;
+  vertical-align: sub;
+  position:absolute;
+  top: 10px;
+}
+
+@media (max-width: 700px) {
+  .viewer img {
+    max-width: 300px;
+  }
+}

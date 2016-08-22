@@ -1,0 +1,11 @@
+<div id="alevel-notes-viewer" style="background: {{ bgColour }}">
+
+    <div id="toolbar" class="{{ (toolbarDown ? 'fixed' : '') }}">
+        <span class="btn" ng-click="print()">Print page</span>
+        <span class="btn" ng-click="toggleWarm()">Toggle warm background</span>
+    </div>
+
+    <div id="note-container" class="viewer display-none">
+        <h2>LOADING</h2>
+    </div>
+</div>

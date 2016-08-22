@@ -1,0 +1,26 @@
+<div id="editor">
+    <header>
+        <span ng-click="save()" ng-hide="saved">Save</span>
+        <span ng-click="load()">Load</span>
+
+        <span ng-click="manualUpdate()">&#8635;</span>
+
+        <input id="password" ng-change="passwordChange()" ng-model="password" type="password" placeholder="password" style="background: {{ passwordColour }}">
+    </header>
+
+    <div id="markup">{{ markup }}</div>
+
+    <!-- TODO: split into multiple sections and only update parts which have changed for performance -->
+    <div id="preview" class="viewer">
+        <div id="preview-document"></div>
+        <div ng-show="fileViewer">
+            <h1>Open</h1>
+
+            <hr>
+
+            <ul id="file-list">
+                <li ng-repeat="file in files" ng-click="open(file.filename)">{{ file.filename }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

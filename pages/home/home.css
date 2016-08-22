@@ -1,0 +1,85 @@
+#home {
+    background: url('home.jpg') center center no-repeat fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#home #overlay {
+    background: rgba(0, 0, 0, 0.55);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#home h1 {
+    text-align: center;
+    color: white;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    font-size: 40px;
+}
+
+#home #container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+#home .card {
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
+    background: white;
+    border-radius: 2px;
+    padding: 15px;
+    margin-bottom: 40px;
+    transition: .2s;
+}
+
+#home .card:hover {
+    background: #f9f9f9;
+}
+
+#home .card h2 {
+    font-weight: lighter;
+    margin-top: 0;
+}
+
+#home .card a {
+    color: blue;
+    font-weight: bolder;
+    display: block;
+    text-decoration: none;
+    transition: .2s;
+}
+
+#home .card a:hover {
+    font-weight: bold;
+    color: darkblue;
+}
+
+#home .card a.disabled {
+    color: grey;
+    cursor: not-allowed;
+}
+
+@media (max-width: 500px) {
+    #home #container {
+        margin-top: 0;
+    }
+
+    #home .card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 340px) {
+    #home h1 {
+        letter-spacing: 0;
+    }
+}

@@ -1,0 +1,19 @@
+@import './header.css';
+
+@import './viewer.css';
+@import './animation.css';
+
+@import '../pages/home/home.css';
+@import '../pages/editor/editor.css';
+@import '../pages/alevel/notes/main/main.css';
+@import '../pages/alevel/notes/module/module.css';
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', 'Helvetica Neue', Roboto, Lato, Ubuntu, Calibri, sans-serif;
+}
+
+.display-none {
+    display: none;
+}

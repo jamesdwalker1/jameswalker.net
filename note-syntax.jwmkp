@@ -1,0 +1,21 @@
+## Note Syntax
+Use <allowtex> at the top to enable [e] and [eblock], and disable ^ for superscript outside of TeX
+
+HTML is allowed for features not covered in the below (users cannot contribute notes so no XSS risk there)
+
+Title: [t]Title[/t]
+Subtitle: [Subtitle]
+Bullets: - Text here, -- Secondary, --- Tertiary
+Bold: [b]bold text here[/b]
+Italics: [i]Italics here[/i]
+Underline: [u]Underline here[/u]
+Image: [img https://example.com/img.png], [img https://example.com/img.png 300w] (integer indicates max width)
+Divider: __ (two underscores)
+New line: [newline]
+Colours: [blue]Text[/blue], same for red, green, grey
+TeX equation (inline): [e]y = x^2[/e]
+TeX equation (block): [eblock]y = x^2[/eblock]
+TODO: [todo]Text[/todo]
+Marker: [m]Text[/m] or [marker]Text[/marker]
+Subscript: either CH`4 or CH[sub]4[/sub]
+Superscript: 3x[sup]12[/sup], or 3x^1^2 (not allowed in TeX mode)

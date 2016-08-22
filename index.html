@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="jwnet">
+
+<head>
+    <title>James Walker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="author" content="James Walker">
+    <meta name="theme-color" content="#1976D2">
+    <script src="bundle.js"></script>
+</head>
+
+<body ng-controller="mainController">
+
+    <div ng-view=""></div>
+
+    <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['££', '££'] ],
+                displayMath: [ ['€€','€€'] ],
+                processEscapes: true,
+                ignoreClass: 'ace_editor'
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" async></script>
+</body>
+
+</html>
