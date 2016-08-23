@@ -11,7 +11,11 @@ module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
     }
 
     load();
-    setInterval(load, 60000);
+    var refresher = setInterval(load, 60000);
+
+    $scope.$on("$destroy", function(){
+        clearInterval(refresher);
+    });
 
     $scope.print = function () {
         window.print();
