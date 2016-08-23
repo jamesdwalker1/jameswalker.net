@@ -104,6 +104,7 @@ module.exports = function ($scope, $http, Notes) {
     };
 
     $scope.openFilename = '';
+    let startingMarkup = '[t]Title[/t]';
     $scope.open = function (filename) {
         $scope.fileViewer = false;
         $scope.openFilename = filename;
@@ -111,26 +112,62 @@ module.exports = function ($scope, $http, Notes) {
         const url = `api/alevel-module.php?name=${filename}`;
         $http.get(url).then(function (res) {
             aceEditor.setValue(res.data.file);
+            startingMarkup = res.data.file;
             update();
             $scope.saved = true;
         });
     };
 
     let savedMarkup = '';
-    function autoSave() {
+    function autoSave(callback) {
+        if (typeof callback !== 'function') {
+            callback = function () { };
+        }
+
         if (savedMarkup === aceEditor.getValue() || !$scope.openFilename) {
-            return;
+            return callback('Success');
         }
 
         const url = `api/alevel-save.php?filename=${$scope.openFilename}`;
         const params = { text: aceEditor.getValue(), pw: $scope.password };
         $http.post(url, params).then(function (res) {
+            callback(res.data);
+
             if (res.data === 'Success') {
                 savedMarkup = aceEditor.getValue();
             }
         });
     }
     setInterval(autoSave, 15000);
+
+    $scope.closeFile = function () {
+        if (aceEditor.getValue() === startingMarkup || aceEditor.getValue() === savedMarkup) {
+            return location.reload();
+        }
+
+        if ($scope.passwordColour === 'darkred') {
+            const confirmed = confirm("You're not logged in - abandon your changes?");
+            if (confirmed) {
+                location.reload();
+            }
+
+            return;
+        }
+
+        autoSave(function (status) {
+            if (status === 'Success') {
+                return location.reload();
+            }
+
+            const confirmed = confirm('Error saving changes. Are you sure you want to abandon your changes?');
+            if (confirmed) {
+                return location.reload();
+            }
+
+            alert(`Error message was ${status}. You could try again, ` +
+                'or select the markup, copy it and save it on your local drive for now.');
+        });
+    }
 
     // Clicking blue markers to go to that section in the left panel
     setInterval(function () {

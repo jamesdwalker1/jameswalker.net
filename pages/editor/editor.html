@@ -1,7 +1,8 @@
 <div id="editor">
     <header>
+        <span ng-click="closeFile()" ng-show="saved">Close file</span>
         <span ng-click="save()" ng-hide="saved">Save</span>
-        <span ng-click="load()">Load</span>
+        <span ng-click="load()" ng-hide="saved">Load</span>
 
         <span ng-click="manualUpdate()">&#8635;</span>
 
