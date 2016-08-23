@@ -5,6 +5,8 @@ module.exports = function ($scope, $routeParams, Notes, $timeout) {
         Notes.getHTML($routeParams.filename, function (html) {
             container.innerHTML = html;
             container.className = 'viewer animated zoomIn';
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]); // render TeX
         });
     }
 
