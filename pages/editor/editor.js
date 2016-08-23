@@ -110,7 +110,7 @@ module.exports = function ($scope, $http, Notes) {
 
         const url = `api/alevel-module.php?name=${filename}`;
         $http.get(url).then(function (res) {
-            aceEditor.setValue(res.data);
+            aceEditor.setValue(res.data.file);
             update();
             $scope.saved = true;
         });
