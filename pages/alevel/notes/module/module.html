@@ -1,8 +1,8 @@
 <div id="alevel-notes-viewer" style="background: {{ bgColour }}">
 
-    <div id="back" ng-click="back()">Back</div>
+    <div id="back" ng-click="back()" class="animated fadeInLeft">Back</div>
 
-    <div id="toolbar" class="{{ (toolbarDown ? 'fixed' : '') }}">
+    <div id="toolbar" class="{{ (toolbarDown ? 'fixed' : '') }} animated fadeInDown">
         <span class="btn" ng-click="print()">Print page</span>
         <span class="btn" ng-click="toggleWarm()">Toggle warm background</span>
         <select ng-model="font" ng-change="fontChanged()">
