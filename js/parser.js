@@ -115,7 +115,7 @@ Parser.prototype._parse = function (markup) {
 
 		// Colours [blue/red/green/grey][/blue/red/green/grey]
 		.replace(/\[blue\](.+?)\[\/blue\]/g, '<span style="color: blue">$1</span>')
-		.replace(/\[red\](.+?)\[\/red\]/g, '<span style="color: red">$1</span>')
+		.replace(/\[red\](.+?)\[\/red\]/g, '<span style="color: #B20000">$1</span>')
 		.replace(/\[green\](.+?)\[\/green\]/g, '<span style="color: green">$1</span>')
 		.replace(/\[gray\](.+?)\[\/gray\]/g, '<span style="color: gray">$1</span>')
 
