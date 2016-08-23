@@ -1,4 +1,4 @@
-module.exports = function ($scope, $routeParams, Notes, $timeout) {
+module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
     const container = document.getElementById('note-container');
 
     function load() {
@@ -35,4 +35,12 @@ module.exports = function ($scope, $routeParams, Notes, $timeout) {
     $timeout(function () {
         $scope.toolbarDown = false;
     }, 5000);
+
+    $scope.back = function () {
+        container.className = 'viewer animated zoomOutDown';
+
+        $timeout(function () {
+            $location.url('/alevel/notes/');
+        }, 200);
+    };
 }

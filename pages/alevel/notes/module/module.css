@@ -2,6 +2,22 @@
     transition: 1s;
 }
 
+#alevel-notes-viewer #back {
+    background: #252525;
+    color: white;
+    padding: 6px;
+    border-radius: 3px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    transition: .2s;
+    z-index: 100;
+}
+#alevel-notes-viewer #back:hover {
+    background: #2196f3;
+}
+
 #alevel-notes-viewer #note-container {
     max-width: 1050px;
     padding: 20px;
