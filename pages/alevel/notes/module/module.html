@@ -5,6 +5,10 @@
     <div id="toolbar" class="{{ (toolbarDown ? 'fixed' : '') }}">
         <span class="btn" ng-click="print()">Print page</span>
         <span class="btn" ng-click="toggleWarm()">Toggle warm background</span>
+        <select ng-model="font" ng-change="fontChanged()">
+            <option>Default Font</option>
+            <option ng-repeat="font in fontOptions">{{ font }}</option>
+        </select>
     </div>
 
     <div id="note-container" class="viewer display-none">

@@ -1,3 +1,5 @@
+const WebFont = require('webfontloader');
+
 module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
     const container = document.getElementById('note-container');
 
@@ -9,18 +11,19 @@ module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]); // render TeX
         });
     }
-
     load();
     var refresher = setInterval(load, 60000);
 
-    $scope.$on("$destroy", function(){
+    $scope.$on("$destroy", function () {
         clearInterval(refresher);
     });
 
+    // Print button
     $scope.print = function () {
         window.print();
     }
 
+    // Colour options
     const colours = [
         '#F1F1F1',
         '#FFC67E'
@@ -47,4 +50,40 @@ module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
             $location.url('/alevel/notes/');
         }, 200);
     };
+
+    // Fonts
+    $scope.font = 'Default Font';
+    $scope.fontOptions = [
+        'Open Sans',
+        'Roboto',
+        'Roboto Slab',
+        'Rubik',
+        'Fira Sans',
+        'Alegreya',
+        'Arvo',
+        'Lato',
+        'Chelsea Market'
+    ];
+
+    $scope.fontChanged = function () {
+        localStorage.setItem('viewerFont', $scope.font);
+
+        if ($scope.font === 'Default Font') {
+            return container.style.fontFamily = 'inherit';
+        }
+
+        WebFont.load({
+            google: {
+                families: [$scope.font]
+            },
+            active: function () {
+                container.style.fontFamily = $scope.font;
+            }
+        });
+    }
+
+    if (localStorage.getItem('viewerFont') !== 'null') {
+        $scope.font = localStorage.getItem('viewerFont');
+        $scope.fontChanged();
+    }
 }

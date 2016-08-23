@@ -60,8 +60,21 @@
     margin-right: 5px;
 }
 
-#alevel-notes-viewer #toolbar .btn:hover {
+#alevel-notes-viewer #toolbar select {
+    background: white;
+    outline: none;
+    border-color: white;
+    height: 33px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#alevel-notes-viewer #toolbar .btn:hover, 
+#alevel-notes-viewer #toolbar select:hover {
     background: #1977c1;
+    color: white;
+    border-color: #1977c1;
 }
 
 #alevel-notes-viewer #toolbar .info {
