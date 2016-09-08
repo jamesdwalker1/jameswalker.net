@@ -1,0 +1,23 @@
+<div id="alevel-resources-main" class="animated fadeInDown">
+    <div id="container">
+        <h1>A-level Resources</h1>
+
+        <p>Past-paper questions for BW students. All questions are sourced from different exam boards to those which BW teach.
+            Therefore, this provides a set of practise questions in addition to the past-papers.
+            <br>
+            Although these are from different specifications, only relevant questions were used and they are sorted into the correct module.
+            <br><br>
+            The grade boundaries at the top are a weighted average of the grade boundaries for all papers used on that page, compensating for difficulty 
+            differences across different pages.
+        </p>
+
+        <div class="subject" ng-repeat="(subject, worksheets) in subs">
+            <h2>{{ subject }}</h2>
+            
+            <a ng-href="#/alevel/resources/{{ worksheet.filename }}/viewer/"
+               ng-repeat="worksheet in worksheets">
+               <strong>{{ worksheet.module }}</strong>: {{ worksheet.worksheet }}
+            </a>
+        </div>
+    </div>
+</div>

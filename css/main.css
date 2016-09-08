@@ -5,8 +5,13 @@
 
 @import '../pages/home/home.css';
 @import '../pages/editor/editor.css';
+@import '../pages/upload/upload.css';
 @import '../pages/alevel/notes/main/main.css';
 @import '../pages/alevel/notes/module/module.css';
+
+@import '../pages/alevel/resources/main/main.css';
+@import '../pages/alevel/resources/editor/editor.css';
+@import '../pages/alevel/resources/viewer/viewer.css';
 
 html, body {
     padding: 0;

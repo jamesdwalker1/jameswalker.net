@@ -6,7 +6,7 @@ const configureAce = require('./aceConfig.js');
 module.exports = function ($scope, $http, Notes) {
     alert('To save changes, please enter your password at the top right.');
 
-    const aceEditor = configureAce();
+    const aceEditor = configureAce('note');
     aceEditor.getSession().on('change', update);
 
     $scope.passwordColour = 'darkred';

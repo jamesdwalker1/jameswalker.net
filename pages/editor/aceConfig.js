@@ -1,10 +1,11 @@
-module.exports = function configureAce() {
+// type = note | worksheet
+module.exports = function configureAce(type) {
     let editor = ace.edit("markup");
     editor.setTheme("ace/theme/textmate");
     editor.getSession().setMode("ace/mode/asciidoc"); // Works best for now - TODO: create a mode
     editor.getSession().setUseWrapMode(true);
     editor.setShowPrintMargin(false);
-    editor.setFontSize(15);
+    editor.setFontSize(16);
     editor.renderer.setShowGutter(false);
     editor.$blockScrolling = Infinity;
 
@@ -52,6 +53,32 @@ module.exports = function configureAce() {
         },
         readOnly: true
     });
+
+    let completedChecker;
+
+    if (type === 'worksheet') {
+        editor.commands.addCommand({
+            name: 'add mark scheme',
+            bindKey: {
+                win: 'Ctrl-M',
+                mac: 'Command-M'
+            },
+            exec: function (editor) {
+                editor.insert('[ms]');
+                clearInterval(completedChecker);
+                localStorage.setItem('uploadName', '');
+                window.open('#/upload/', '_blank');
+
+                completedChecker = setInterval(function () {
+                    const uploadName = localStorage.getItem('uploadName');
+                    if (uploadName !== '') {
+                        editor.insert(uploadName + '[/ms]');
+                        clearInterval(completedChecker);
+                    }
+                }, 1000);
+            }
+        });
+    }
 
     return editor;
 }

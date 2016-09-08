@@ -1,0 +1,29 @@
+<div id="alevel-resources-viewer" class="animated fadeInLeft">
+    <div id="container">
+        <button id="print" onclick="window.print()">Print</button>
+        <button id="ms" ng-click="showMarkScheme()">Toggle mark scheme</button>
+
+        <h1>{{ title }}</h1>
+
+        <div id="grade-boundaries">
+            <h2>Grade boundaries (out of {{ totalMarks }})</h2>
+            <table>
+                <tr>
+                    <th>A*</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                </tr>
+                <tr>
+                    <td ng-repeat="boundary in gradeBoundaries">
+                        {{ boundary }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="sheet" class="resource">Please wait...</div>
+    </div>
+</div>

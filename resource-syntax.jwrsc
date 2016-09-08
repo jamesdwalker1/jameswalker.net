@@ -1,0 +1,68 @@
+/* This is a comment */
+// This is also a comment
+
+[boundaries]76%,67%[/boundaries] or [boundaries]34,28[/boundaries]
+/* (either percentages or raw marks can be used) */
+/* these are the required marks for an A and B, the other boundaries are automatically calculated */
+
+{ /* question (numbered 1, 2, 3, ...) */
+    Question text here. [b]bold[/b], [i]italics[/i], 
+    [newline] and [img http://... 200w],
+    and [e]TeX equations[/e] allowed here
+    
+    [5,3] /* show 5 blank lines and set question worth 3 marks */ 
+    
+    { /* part-question (a, b, c, ...), max 26 */
+        Text here ([i]as before[/i])
+        
+        [1, 1]
+        [ms]https://... (image url of mark scheme)[/ms]
+        
+        { /* part-part question (i, ii, iii, iv, ...), max 9 */
+            Text here ([i]as before[/i])
+            
+            [1, 1]
+            [ms]https://... (image url of mark scheme)[/ms]
+        }
+    }
+    
+    {
+        Another part question
+        
+        [2, 1]
+        [ms]https://... (image url of mark scheme)[/ms]
+    }
+}
+
+{
+    Another main question
+    
+    [20, 20]
+    [ms]https://... (image url of mark scheme)[/ms]
+}
+
+
+/* EXAMPLE: (extracts from a c3 paper) */
+
+{
+    Solve the equation [e]|2x - 1| = |x|[/e]
+    
+    [6,4]
+    [ms]https://... (image url of mark scheme)[/ms]
+}
+
+{
+    {
+        Multiply out (3^n+1)(3^n-1).
+        [3,1]
+        [ms]https://... (image url of mark scheme)[/ms]
+    }
+    {
+        Hence prove that if n is a positive integer then 3^2^n - 1 is divisible by 8.
+        [6,3]
+        [ms]https://... (image url of mark scheme)[/ms]
+    }
+}
+
+
+

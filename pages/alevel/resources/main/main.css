@@ -1,0 +1,32 @@
+#alevel-resources-main #container {
+    max-width: 700px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#alevel-resources-main h1 {
+    margin-top: 0;
+}
+
+#alevel-resources-main .subject {
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
+    background: white;
+    border-radius: 2px;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+
+#alevel-resources-main .subject h2 {
+    margin-top: 0;
+    font-weight: normal;
+}
+
+#alevel-resources-main .subject a {
+    color: #0027ff;
+    text-decoration: none;
+    transition: .1s;
+}
+#alevel-resources-main .subject a:hover {
+    padding-left: 3px;
+    color: #001796;
+}
