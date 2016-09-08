@@ -1,6 +1,6 @@
 # JamesWalker.net version 3
 Using Angular.js 1, Webpack and a small PHP API (I'm trying to keep loading times low)  
-I also use MathJax and Ace Editor, these are loaded from their CDNs
+I also use MathJax, Firebase Storage and Ace Editor, these are loaded from their CDNs
 
 ## Building and deploying
 Install Node.js, PHP and a webserver and then run ```sudo npm install -g webpack```.  
