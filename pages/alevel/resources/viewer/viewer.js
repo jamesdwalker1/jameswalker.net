@@ -12,6 +12,10 @@ module.exports = function ($scope, $routeParams, $http) {
 
         $scope.totalMarks = rp.getTotalMarks();
         $scope.gradeBoundaries = rp.getGradeBoundaries();
+
+        setTimeout(function () {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]); // render TeX
+        }, 500);
     });
 
     let markSchemeVisible = false;
