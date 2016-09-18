@@ -1,5 +1,5 @@
 // type = note | worksheet
-module.exports = function configureAce(type) {
+module.exports = function configureAce(type, manualReloadCallback) {
     let editor = ace.edit("markup");
     editor.setTheme("ace/theme/textmate");
     editor.getSession().setMode("ace/mode/asciidoc"); // Works best for now - TODO: create a mode
@@ -53,6 +53,15 @@ module.exports = function configureAce(type) {
         },
         readOnly: true
     });
+    editor.commands.addCommand({
+        name: 'reload',
+        bindKey: {
+            win: 'Ctrl-Space',
+            mac: 'Command-Space'
+        },
+        exec: function () { manualReloadCallback() },
+        readOnly: true
+    })
 
     let completedChecker;
 

@@ -6,9 +6,6 @@ const configureAce = require('./aceConfig.js');
 module.exports = function ($scope, $http, Notes) {
     alert('To save changes, please enter your password at the top right.');
 
-    const aceEditor = configureAce('note');
-    aceEditor.getSession().on('change', update);
-
     $scope.passwordColour = 'darkred';
     $scope.passwordChange = function () {
         $http.post('api/check-password.php', { pw: $scope.password }).then(function (res) {
@@ -35,7 +32,6 @@ module.exports = function ($scope, $http, Notes) {
             }
         });
     };
-    update();
 
     $scope.manualUpdate = function () {
         parser.clearCache();
@@ -44,6 +40,11 @@ module.exports = function ($scope, $http, Notes) {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         });
     }
+
+    const aceEditor = configureAce('note', $scope.manualUpdate);
+    aceEditor.getSession().on('change', update);
+
+    update();
 
     function sentenceCase(str) {
         return str.substring(0, 1).toUpperCase() + str.substring(1, str.length);
