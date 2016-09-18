@@ -70,11 +70,25 @@ Parser.prototype.toHTML = function (callback) {
 };
 
 Parser.prototype._parse = function (markup) {
+	// Flashcard references
+	const lines = markup.split(/\r?\n/);
+	let adjustedMarkup = '';
+
+	lines.forEach(function (line) {
+		if (line[0] === '[' && line[line.length - 1] === ')') {
+			// e.g. line = [[m]a[/m] title](AB)(AC)(AD) 
+			let subtitle = line.split('](')[0];
+			return adjustedMarkup += subtitle + ']';
+		}
+
+		adjustedMarkup += line;
+	});
+
 	// Allow ^ if not using TeX
 	if (!this.texMode) {
 		// (deprecated) old img TeX (service deprecated by Google with no replacement)
 		// Must be done before ^ replacement as ^ is used in TeX
-		markup = markup
+		adjustedMarkup = adjustedMarkup
 			.replace(/\[texline\](.+?)\[\/texline\]/g, function (match, capture) {
 				return '<img src="https://chart.googleapis.com/chart?cht=tx&chf=bg,s,0000FF00&chco=B20000&chs=80&chl=' +
 					encodeURIComponent(capture) + '" alt="" class="tex" height="16">'
@@ -87,7 +101,7 @@ Parser.prototype._parse = function (markup) {
 			.replace(/\^(.)/g, '<sup>$1</sup>');
 	}
 
-    return markup
+    return adjustedMarkup
 
 		// Title [t][/t]
 		.replace(/\[t\]/g, '</ul><h1>')

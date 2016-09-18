@@ -1,0 +1,28 @@
+<div id="card-editor">
+    <textarea id="cards-file" ng-model="file"></textarea>
+    
+    <textarea id="cardID-list" ng-model="cardIDList"></textarea>
+
+    <div id="new-card-form">
+        <h2>New card</h2>
+        
+        <div class="field">
+            <label for="card-front">Front:</label>
+            <textarea id="card-front" ng-model="front"></textarea>
+        </div>
+
+        <div class="field">
+            <label for="card-back">Back:</label>
+            <textarea id="card-back" ng-model="back"></textarea>
+        </div>
+
+        <div class="field">
+            <input type="number" placeholder="difficulty" min="1" max="5" ng-model="difficulty">
+        </div>
+
+        <div class="field">
+            <button ng-click="add()">Add card</button>
+        </div>
+        
+    </div>
+</div>

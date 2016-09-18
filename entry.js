@@ -19,6 +19,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'pages/upload/upload.html',
         controller: 'upload'
     })
+    .when('/card-editor/', {
+        templateUrl: 'pages/cardEditor/cardEditor.html',
+        controller: 'cardEditor'
+    })
 
     .when('/alevel/notes/', {
         templateUrl: 'pages/alevel/notes/main/main.html',
@@ -56,6 +60,7 @@ app.controller('alevelResourcesViewer', require('./pages/alevel/resources/viewer
 
 app.controller('editor', require('./pages/editor/editor'));
 app.controller('upload', require('./pages/upload/upload'));
+app.controller('cardEditor', require('./pages/cardEditor/cardEditor'));
 
 
 app.factory('Notes', require('./js/factory/notes.js'));

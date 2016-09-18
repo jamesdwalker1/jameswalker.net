@@ -1,0 +1,16 @@
+Flashcard syntax
+
+Cards:
+[
+    (cardID): {
+      front: 'question text here',
+      back: 'answer text here',
+      difficulty: int (from 1 (easy) to 5 (hard))
+    }, ...
+];
+
+A cardID is a 2 or 3 character uppercase + numbers code
+
+Referencing:
+[[m]e[/m] Esterification](EV)(VW)(FA)(OI) 
+  // here the section on esterification has four cards testing knowledge of it
