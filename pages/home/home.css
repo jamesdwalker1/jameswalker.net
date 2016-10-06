@@ -1,7 +1,8 @@
 #home {
     background: url('home.jpg') center center no-repeat fixed;
     background-size: cover;
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
     top: 0;
     right: 0;
     left: 0;
@@ -10,7 +11,8 @@
 
 #home #overlay {
     background: rgba(0, 0, 0, 0.55);
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
     top: 0;
     right: 0;
     left: 0;
