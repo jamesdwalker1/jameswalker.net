@@ -87,6 +87,41 @@
   top: 10px;
 }
 
+.viewer .simplex {
+	border: 1px solid black;	
+}
+.viewer .simplex td {
+	width: 40px;
+	text-align: center; 
+}
+.viewer .simplex tr:first-child {
+	font-weight: bold; 
+}
+
+.viewer .floyds {
+	border: 1px solid black;
+	margin-right: 10px;
+}
+.viewer .floyds tr:first-child {
+	font-weight: bold;
+}
+.viewer .floyds tr td:first-child {
+	font-weight: bold;
+}
+.viewer .floyds td {
+	width: 25px;
+	height: 25px;
+	text-align: center;
+}
+
+.probability-distribution {
+	border-collapse: collapse;
+}
+.probability-distribution td {
+	border: 1px solid black;
+	padding: 3px;
+}
+
 @media (max-width: 700px) {
   .viewer img {
     max-width: 300px;
