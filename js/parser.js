@@ -118,8 +118,8 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[u\](.+?)\[\/u\]/g, '<span style="text-decoration:underline">$1</span>')
 
 		// Images [img https://example.com/img.png], [img https://example.com/img.png 300w] (number indicates max width)
+		.replace(/\[img ([^ ]+?)\]/g, '<img src="$1" alt="">')
 		.replace(/\[img (.+?) (.+?)w\]/g, '<img src="$1" alt="" width="$2" style="max-width:$2">')
-		.replace(/\[img (.+?)\]/g, '<img src="$1" alt="">')
 
 		// Dividers __
 		.replace(/__/g, '</ul><hr>')
