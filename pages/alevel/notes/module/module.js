@@ -5,6 +5,10 @@ module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
 
     function load() {
         Notes.getHTML($routeParams.filename, function (html) {
+            if (container.innerHTML === html) {
+                return; // don't rerender if not changed
+            }
+
             container.innerHTML = html;
             container.className = 'viewer animated zoomIn';
 
