@@ -86,7 +86,7 @@ module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
         });
     }
 
-    if (localStorage.getItem('viewerFont') !== 'null') {
+    if (localStorage.getItem('viewerFont') !== null) {
         $scope.font = localStorage.getItem('viewerFont');
         $scope.fontChanged();
     }
