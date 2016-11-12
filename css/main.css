@@ -27,3 +27,8 @@ html, body {
 #MathJax_Message {
     display: none;
 }
+
+::selection {
+    background: #2196f3;
+    color: white;
+}
