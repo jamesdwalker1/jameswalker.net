@@ -3,12 +3,14 @@ const WebFont = require('webfontloader');
 module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
     const container = document.getElementById('note-container');
 
+    let currentHTML = ''; // hold raw HTML (before MathJax does its stuff)
     function load() {
         Notes.getHTML($routeParams.filename, function (html) {
-            if (container.innerHTML === html) {
+            if (html === currentHTML) {
                 return; // don't rerender if not changed
             }
 
+            currentHTML = html;
             container.innerHTML = html;
             container.className = 'viewer animated zoomIn';
 
