@@ -43,11 +43,15 @@ module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
         }
     };
 
+    $scope.tempShowToolbar = function () {
+        $scope.toolbarDown = true;
+        $timeout(function () {
+            $scope.toolbarDown = false;
+        }, 4000);
+    }
+
     // On desktop, show the toolbar fully for 5 secs before retracting it
-    $scope.toolbarDown = true;
-    $timeout(function () {
-        $scope.toolbarDown = false;
-    }, 5000);
+    $scope.tempShowToolbar();
 
     $scope.back = function () {
         container.className = 'viewer animated zoomOutDown';

@@ -44,6 +44,24 @@
     transition-delay: 0s;
 }
 
+#alevel-notes-viewer #toolbar-expand {
+    position: fixed;
+    top: 7px;
+    right: 200px;
+    width: 32px;
+    height: 32px;
+    background: #252525;
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#alevel-notes-viewer #toolbar-expand:hover {
+    background: #2196F3;
+}
+
 #alevel-notes-viewer #toolbar .btn {
     display: block;
     float: left;
