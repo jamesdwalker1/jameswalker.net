@@ -127,10 +127,11 @@ Parser.prototype._parse = function (markup) {
 		// New lines [newline]
 		.replace(/\[newline\]/g, '<br>')
 
-		// Colours [blue/red/green/grey][/blue/red/green/grey]
+		// Colours [blue/red/green/orange/grey][/blue/red/green/orange/grey]
 		.replace(/\[blue\](.+?)\[\/blue\]/g, '<span style="color: blue">$1</span>')
 		.replace(/\[red\](.+?)\[\/red\]/g, '<span style="color: #B20000">$1</span>')
 		.replace(/\[green\](.+?)\[\/green\]/g, '<span style="color: green">$1</span>')
+		.replace(/\[orange\](.+?)\[\/orange\]/g, '<span style="color: orange">$1</span>')
 		.replace(/\[gray\](.+?)\[\/gray\]/g, '<span style="color: gray">$1</span>')
 
 		// Todo, marker [todo][/todo], [m/marker][/m/marker]
@@ -140,6 +141,7 @@ Parser.prototype._parse = function (markup) {
 
 		// Symbols
 		.replace(/\[->\]/g, '<span>&#8594;</span>')
+		.replace(/\[<->\]/g, '<span>&#8652;</span>')
 		.replace(/\[>=\]/g, '<span>&ge;</span>')
 		.replace(/\[<=\]/g, '<span>&le;</span>')
 		.replace(/\[divide\]/g, '<span>&divide;</span>')
@@ -154,6 +156,12 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[pi\]/g, '<span>&pi;</span>')
 		.replace(/\[x\]/g, '&times;')
 		.replace(/\[symbol html=(.+?)\]/g, '$1') // used in old site - kept for compatibility with old markup
+		.replace(/\[ddx\]/g, '[e]\frac{d}{dx}[/e]')
+		.replace(/\[dydx\]/g, '[e]\frac{dy}{dx}[/e]')
+
+		.replace(/\[aq\]/g, '<span class="state-symbol">(aq)</span>')
+		.replace(/\[l\]/g, '<span class="state-symbol">(l)</span>')
+		.replace(/\[s\]/g, '<span class="state-symbol">(s)</span>')
 
 		// (deprecated, used in old site) non TeX fractions
 		.replace(/frac=(.+?)\/(.+?)=frac/g, '<sup>$1</sup><em>/</em><sub>$2</sub>')
@@ -173,6 +181,9 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\`(.)/g, '<sub>$1</sub>')
 		.replace(/\[sub\](.+?)\[\/sub\]/g, '<sub>$1</sub>')
 		.replace(/\[sup\](.+?)\[\/sup\]/g, '<sup>$1</sup>')
+
+		// Square brackets surround
+		.replace(/\[sb\](.+?)\[\/sb\]/g, '<span class="square-bracket">&#91;</span>$1<span class="square-bracket">&#93;</span>')
 
 		// Subtitles aka <h2> [subtitle text here]
 		.replace(/\[/g, '</ul><h2>')

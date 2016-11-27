@@ -87,6 +87,18 @@
   top: 10px;
 }
 
+.viewer .state-symbol {
+    color: #272727;
+    font-size: 90%;
+    margin-left: 2px;
+}
+
+.viewer .square-bracket {
+    font-size: 110%;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
 .viewer .simplex {
 	border: 1px solid black;	
 }
