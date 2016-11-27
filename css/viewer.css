@@ -87,10 +87,42 @@
   top: 10px;
 }
 
+.viewer .colour.blue {
+    color: blue;
+}
+.viewer .colour.red {
+    color: #B20000;
+}
+.viewer .colour.green {
+    color: green;
+}
+.viewer .colour.orange {
+    color: orange;
+}
+.viewer .colour.gray {
+    color: gray;
+}
+
+.viewer .forward-arrow { /* make it bigger and centred */
+    font-size: 170%;
+    position: relative;
+    top: 2.5px;
+    height: 0;
+    display: inline-block;
+    margin-top: -7px;
+}
+
 .viewer .state-symbol {
     color: #272727;
     font-size: 90%;
     margin-left: 2px;
+}
+
+.viewer .colour .state-symbol {
+    color: inherit;
+    opacity: .8;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 .viewer .square-bracket {

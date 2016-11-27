@@ -128,11 +128,11 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[newline\]/g, '<br>')
 
 		// Colours [blue/red/green/orange/grey][/blue/red/green/orange/grey]
-		.replace(/\[blue\](.+?)\[\/blue\]/g, '<span style="color: blue">$1</span>')
-		.replace(/\[red\](.+?)\[\/red\]/g, '<span style="color: #B20000">$1</span>')
-		.replace(/\[green\](.+?)\[\/green\]/g, '<span style="color: green">$1</span>')
-		.replace(/\[orange\](.+?)\[\/orange\]/g, '<span style="color: orange">$1</span>')
-		.replace(/\[gray\](.+?)\[\/gray\]/g, '<span style="color: gray">$1</span>')
+		.replace(/\[blue\](.+?)\[\/blue\]/g, '<span class="colour blue">$1</span>')
+		.replace(/\[red\](.+?)\[\/red\]/g, '<span class="colour red">$1</span>')
+		.replace(/\[green\](.+?)\[\/green\]/g, '<span class="colour green">$1</span>')
+		.replace(/\[orange\](.+?)\[\/orange\]/g, '<span class="colour orange">$1</span>')
+		.replace(/\[gray\](.+?)\[\/gray\]/g, '<span class="colour gray">$1</span>')
 
 		// Todo, marker [todo][/todo], [m/marker][/m/marker]
 		.replace(/\[todo\](.+?)\[\/todo\]/g, '<div class="todo"><strong>TO DO: $1</strong></div>')
@@ -140,7 +140,7 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[m](.+?)\[\/m\]/g, '<strong class="marker" id="$1">$1</strong> ')
 
 		// Symbols
-		.replace(/\[->\]/g, '<span>&#8594;</span>')
+		.replace(/\[->\]/g, '<span class="forward-arrow">&#8594;</span>')
 		.replace(/\[<->\]/g, '<span>&#8652;</span>')
 		.replace(/\[>=\]/g, '<span>&ge;</span>')
 		.replace(/\[<=\]/g, '<span>&le;</span>')
