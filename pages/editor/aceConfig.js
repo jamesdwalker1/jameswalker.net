@@ -94,7 +94,7 @@ module.exports = function configureAce(type, manualReloadCallback) {
         },
         exec: manualReloadCallback,
         readOnly: true
-    })
+    });
 
     let completedChecker;
 
