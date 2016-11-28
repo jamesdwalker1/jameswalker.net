@@ -54,12 +54,34 @@ module.exports = function configureAce(type, manualReloadCallback) {
         readOnly: true
     });
     editor.commands.addCommand({
+        name: 'equation',
+        bindKey: {
+            win: 'Ctrl-M',
+            mac: 'Command-E'
+        },
+        exec: function (editor) {
+            editor.insert('[e]');
+        },
+        readOnly: true
+    });
+    editor.commands.addCommand({
+        name: 'finish equation',
+        bindKey: {
+            win: 'Ctrl-Shift-M',
+            mac: 'Command-Shift-E'
+        },
+        exec: function (editor) {
+            editor.insert('[/e]');
+        },
+        readOnly: true
+    });
+    editor.commands.addCommand({
         name: 'reload',
         bindKey: {
-            win: 'Ctrl-Space',
-            mac: 'Command-Space'
+            win: 'Ctrl-Space|Ctrl-Enter',
+            mac: 'Command-Space|Command-Enter'
         },
-        exec: function () { manualReloadCallback() },
+        exec: manualReloadCallback,
         readOnly: true
     })
 
