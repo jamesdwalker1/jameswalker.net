@@ -87,6 +87,35 @@ module.exports = function configureAce(type, manualReloadCallback) {
 
     let completedChecker;
 
+    // Type = 'img' or 'ms' (notes can only have images, resources have mark schemes too)
+    function addImage(editor, type) {
+        editor.insert(`[${type} `);
+        clearInterval(completedChecker);
+        localStorage.setItem('uploadName', '');
+        window.open('#/upload/', '_blank');
+
+        completedChecker = setInterval(function () {
+            const uploadName = localStorage.getItem('uploadName');
+            if (uploadName === '') {
+                return; // user hasn't uploaded yet
+            }
+
+            editor.insert(uploadName + ']');
+            clearInterval(completedChecker);        
+        }, 250);
+    }
+
+    editor.commands.addCommand({
+            name: 'upload image',
+            bindKey: {
+                win: 'Ctrl-I',
+                mac: 'Command-I'
+            },
+            exec: function (editor) {
+                addImage(editor, 'img');
+            }
+        });
+
     if (type === 'worksheet') {
         editor.commands.addCommand({
             name: 'add mark scheme',
@@ -95,18 +124,7 @@ module.exports = function configureAce(type, manualReloadCallback) {
                 mac: 'Command-M'
             },
             exec: function (editor) {
-                editor.insert('[ms]');
-                clearInterval(completedChecker);
-                localStorage.setItem('uploadName', '');
-                window.open('#/upload/', '_blank');
-
-                completedChecker = setInterval(function () {
-                    const uploadName = localStorage.getItem('uploadName');
-                    if (uploadName !== '') {
-                        editor.insert(uploadName + '[/ms]');
-                        clearInterval(completedChecker);
-                    }
-                }, 1000);
+                addImage(editor, 'ms');
             }
         });
     }

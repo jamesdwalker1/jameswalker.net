@@ -99,7 +99,7 @@ ResourceParser.prototype._parse = function () {
             }
 
             // If it's the mark scheme image
-            match = /\[ms\](.+?)\[\/ms\]/.exec(line);
+            match = /\[ms\](.+?)\[\/ms\]/.exec(line) || /\[ms ([^ ]+?)\]/.exec(line);
             if (match) {
                 const url = match[1];
                 html += `<img at="${url}" class="ms">`;
@@ -145,6 +145,9 @@ ResourceParser.prototype._parse = function () {
                     .replace(/\[eblock\]/g, '€€')
                     .replace(/\[\/eblock\]/g, '€€')
                     .replace(/\`(.)/g, '<sub>$1</sub>')
+
+                    .replace(/\[img ([^ ]+?)\]/g, '<img src="$1" alt="">')
+		            .replace(/\[img (.+?) (.+?)w\]/g, '<img src="$1" alt="" width="$2" style="max-width:$2">')
                 + '</p>';
         }
     });
