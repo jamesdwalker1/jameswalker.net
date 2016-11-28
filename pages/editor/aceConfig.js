@@ -117,15 +117,15 @@ module.exports = function configureAce(type, manualReloadCallback) {
     }
 
     editor.commands.addCommand({
-            name: 'upload image',
-            bindKey: {
-                win: 'Ctrl-I',
-                mac: 'Command-I'
-            },
-            exec: function (editor) {
-                addImage(editor, 'img');
-            }
-        });
+        name: 'upload image',
+        bindKey: {
+            win: 'Ctrl-I',
+            mac: 'Command-I'
+        },
+        exec: function (editor) {
+            addImage(editor, 'img');
+        }
+    });
 
     if (type === 'worksheet') {
         editor.commands.addCommand({
