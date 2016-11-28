@@ -18,11 +18,17 @@ module.exports = function ($scope, $http, Notes) {
     }
 
     $scope.saved = false;
+    $scope.autosaved = false;
     $scope.fileViewer = false;
 
     const preview = document.getElementById('preview-document');
 
     function update(callback) {
+        if ($scope.autosaved) {
+            $scope.autosaved = false;
+            $scope.$apply();
+        }
+
         parser.setMarkup(aceEditor.getValue());
         parser.toHTML(function (html) {
             preview.innerHTML = html;
@@ -139,7 +145,14 @@ module.exports = function ($scope, $http, Notes) {
             }
         });
     }
-    setInterval(autoSave, 15000);
+
+    setInterval(function () {
+        autoSave(function (status) {
+            if (status === 'Success') {
+                $scope.autosaved = true;
+            }
+        }); 
+    }, 15000);
 
     $scope.closeFile = function () {
         if (aceEditor.getValue() === startingMarkup || aceEditor.getValue() === savedMarkup) {

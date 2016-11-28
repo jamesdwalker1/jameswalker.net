@@ -42,3 +42,18 @@ header #password {
     background: #ccc;
     padding-left: 5px;
 }
+
+#editor #save-status {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #2196F3;
+    color: white;
+    padding: 3px;
+    border-top-left-radius: 3px;
+    opacity: .8;
+    transition: .15s;
+}
+#editor #save-status:hover {
+    opacity: .2;
+}
