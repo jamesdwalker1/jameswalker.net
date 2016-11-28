@@ -162,6 +162,7 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[aq\]/g, '<span class="state-symbol">(aq)</span>')
 		.replace(/\[l\]/g, '<span class="state-symbol">(l)</span>')
 		.replace(/\[s\]/g, '<span class="state-symbol">(s)</span>')
+		.replace(/\[g\]/g, '<span class="state-symbol">(g)</span>')
 
 		// (deprecated, used in old site) non TeX fractions
 		.replace(/frac=(.+?)\/(.+?)=frac/g, '<sup>$1</sup><em>/</em><sub>$2</sub>')
