@@ -76,6 +76,17 @@ module.exports = function configureAce(type, manualReloadCallback) {
         readOnly: true
     });
     editor.commands.addCommand({
+        name: 'line break',
+        bindKey: {
+            win: 'Shift-Enter',
+            mac: 'Shift-Enter'
+        },
+        exec: function (editor) {
+            editor.insert('[newline]\n');
+        },
+        readOnly: true
+    });
+    editor.commands.addCommand({
         name: 'reload',
         bindKey: {
             win: 'Ctrl-Space|Ctrl-Enter',
