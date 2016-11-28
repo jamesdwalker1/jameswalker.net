@@ -56,7 +56,7 @@ module.exports = function configureAce(type, manualReloadCallback) {
     editor.commands.addCommand({
         name: 'equation',
         bindKey: {
-            win: 'Ctrl-M',
+            win: 'Ctrl-M|Alt-=', // Alt-= is the shortcut for MS word
             mac: 'Command-E'
         },
         exec: function (editor) {
@@ -67,7 +67,7 @@ module.exports = function configureAce(type, manualReloadCallback) {
     editor.commands.addCommand({
         name: 'finish equation',
         bindKey: {
-            win: 'Ctrl-Shift-M',
+            win: 'Ctrl-Shift-M|Ctrl-Alt-=|Shift-Alt-=',
             mac: 'Command-Shift-E'
         },
         exec: function (editor) {
