@@ -180,6 +180,12 @@ Parser.prototype._parse = function (markup) {
 			let output = [];
 
 			components.forEach(function (component) {
+				// If it's a value (e.g. 4000 in [si]4000 K[/si]), add that now
+				const isFloat = !isNaN(parseFloat(component));
+				if (isFloat) {
+					return output.push(component);
+				}
+
 				const chars = component.split('');
 
 				let unit = '';
