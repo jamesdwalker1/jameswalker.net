@@ -171,6 +171,38 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[equation\]/g, '<code>')
 		.replace(/\[\/equation\]/g, '</code>')
 
+		// SI unit formatter
+		.replace(/\[si\](.+?)\[\/si\]/g, function (capture, string) {
+			const components = string.split(' ');
+			let output = [];
+
+			components.forEach(function (component) {
+				const chars = component.split('');
+
+				let unit = '';
+				let index = '';
+
+				for (let i = 0; i < chars.length; i++) {
+					const isNum = !isNaN(parseInt(chars[i])) || chars[i] === '-';
+					if (isNum) {
+						unit = component.substring(0, i);
+						index = component.substring(i);
+						
+						break;
+					}
+				}
+
+				if (index === '') {
+					output.push(`\\mathrm{${component}}`);
+				} else {
+					output.push(`\\mathrm{${unit}}^{${index}}`);
+				}
+			});
+
+			const texString = output.join('\\ ');console.log(texString);
+			return `[e]${texString}[/e]`;
+		})
+
 		// TeX equations - inline
 		.replace(/\[e\]/g, '££')
 		.replace(/\[\/e\]/g, '££')
