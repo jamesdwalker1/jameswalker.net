@@ -76,6 +76,17 @@ module.exports = function configureAce(type, manualReloadCallback) {
         readOnly: true
     });
     editor.commands.addCommand({
+        name: 'SI units',
+        bindKey: {
+            win: 'Ctrl-U',
+            mac: 'Command-U'
+        },
+        exec: function (editor) {
+            editor.insert(`[si]${prompt('Enter SI units')}[/si]`);
+        },
+        readOnly: true
+    });
+    editor.commands.addCommand({
         name: 'line break',
         bindKey: {
             win: 'Shift-Enter',
