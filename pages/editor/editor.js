@@ -188,7 +188,7 @@ module.exports = function ($scope, $http, Notes) {
         document.querySelectorAll('.marker').forEach(function (marker) {
             marker.onclick = function (e) {
                 const name = e.target.innerHTML;
-                aceEditor.find(`[marker]${name}[/marker]`, {
+                aceEditor.find(`[m]${name}[/m]`, {
                     start: 0
                 });
                 aceEditor.findNext();
