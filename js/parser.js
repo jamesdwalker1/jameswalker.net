@@ -199,7 +199,7 @@ Parser.prototype._parse = function (markup) {
 				}
 			});
 
-			const texString = output.join('\\ ');console.log(texString);
+			const texString = output.join('\\ ');
 			return `[e]${texString}[/e]`;
 		})
 
