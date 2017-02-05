@@ -134,3 +134,19 @@
         display: none;
     }
 }
+
+@media (max-width: 450px) {
+    #alevel-notes-viewer #toolbar #print-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    #alevel-notes-viewer #toolbar {
+        padding: 2px;
+    }
+
+    #alevel-notes-viewer #toolbar #background-btn {
+        padding: 7px;
+    }
+}

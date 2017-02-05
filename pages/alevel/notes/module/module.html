@@ -3,8 +3,8 @@
     <div id="back" ng-click="back()" class="animated fadeInLeft">Back</div>
 
     <div id="toolbar" class="{{ (toolbarDown ? 'fixed' : '') }} animated fadeInDown">
-        <span class="btn" ng-click="print()">Print page</span>
-        <span class="btn" ng-click="toggleWarm()">Toggle warm background</span>
+        <span class="btn" id="print-btn" ng-click="print()">Print page</span>
+        <span class="btn" id="background-btn" ng-click="toggleWarm()">Toggle warm background</span>
         <select ng-model="font" ng-change="fontChanged()">
             <option>Default Font</option>
             <option ng-repeat="font in fontOptions">{{ font }}</option>
