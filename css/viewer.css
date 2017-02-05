@@ -9,6 +9,11 @@
 	page-break-after: avoid;
 }
 
+ /* Make MathJax the same size as rest of h2 */
+.viewer h2 span {
+    font-size: 100% !important;
+}
+
 .viewer code {
     font-family: 'Open Sans', 'Cambria Math', sans-serif;
 }
