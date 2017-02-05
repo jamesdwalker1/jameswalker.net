@@ -27,8 +27,11 @@ header #password {
     right: 0;
     width: 60%;
     outline: none;
-    padding: 10px;
     overflow-y: scroll;
+}
+
+#editor #preview-document {
+    margin: 10px;
 }
 
 #editor #file-list li {
