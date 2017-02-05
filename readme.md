@@ -12,5 +12,5 @@ PHP will need write permissions for api/saves/.
 ## Note markup syntax
 See note-syntax.jwmkp
 
-## A-level resources syntax
+## A Level resources syntax
 See resource-syntax.jwrsc
