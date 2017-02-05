@@ -25,6 +25,29 @@
                 displayMath: [ ['€€','€€'] ],
                 processEscapes: true,
                 ignoreClass: 'ace_editor'
+            },
+            TeX: {
+                Macros: {
+                    // \cosec - TeX comes with \csc only
+                    cosec: ['{\\operatorname{cosec}}', 1],
+
+                    // Hyperbolic functions
+                    arcsinh: ['{\\operatorname{arcsinh}}', 1],
+                    arccosh: ['{\\operatorname{arccosh}}', 1],
+                    arctanh: ['{\\operatorname{arctanh}}', 1],
+                    cosech: ['{\\operatorname{cosech}}', 1],
+                    sech: ['{\\operatorname{sech}}', 1],
+                    coth: ['{\\operatorname{coth}}', 1],
+
+                    // d (e.g. \d y/\ dx) and e (e.g. \e^3)
+                    d: '{\\mathrm{d}}',
+                    dx: '{\\mathrm{d}x}',
+                    dy: '{\\mathrm{d}y}',
+                    e: '{\\operatorname{e}}',
+
+                    // Physics
+                    arcsecond: '{^{\\prime\\prime}}'
+                }
             }
         });
     </script>
