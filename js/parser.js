@@ -210,6 +210,9 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[e\]/g, '££')
 		.replace(/\[\/e\]/g, '££')
 
+		.replace(/\[elarge\]/g, '<span class="mathjax-large">££')
+		.replace(/\[\/elarge\]/g, '££</span>')
+
 		.replace(/\[eblock\]/g, '€€')
 		.replace(/\[\/eblock\]/g, '€€')
 
