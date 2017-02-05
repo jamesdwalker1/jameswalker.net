@@ -128,6 +128,7 @@
         right: 0;
         border-radius: 0;
         position: absolute;
+        box-shadow: 0 3px 3px #bebebe;
     }
 
     #alevel-notes-viewer #toolbar-expand {
