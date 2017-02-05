@@ -134,6 +134,9 @@ Parser.prototype._parse = function (markup) {
 		.replace(/\[orange\](.+?)\[\/orange\]/g, '<span class="colour orange">$1</span>')
 		.replace(/\[gray\](.+?)\[\/gray\]/g, '<span class="colour gray">$1</span>')
 
+		// Colour code
+		.replace(/\[colour (.+?)\](.+?)\[\/colour\]/g, '<span class="colour" style="color: $1">$2</span>')
+
 		// Todo, marker [todo][/todo], [m/marker][/m/marker]
 		.replace(/\[todo\](.+?)\[\/todo\]/g, '<div class="todo"><strong>TO DO: $1</strong></div>')
 		.replace(/\[marker](.+?)\[\/marker\]/g, '<strong class="marker" id="$1">$1</strong> ')
