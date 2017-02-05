@@ -106,7 +106,6 @@
 .viewer .forward-arrow { /* make it bigger and centred */
     font-size: 170%;
     position: relative;
-    top: 2.5px;
     height: 0;
     display: inline-block;
     margin-top: -7px;
