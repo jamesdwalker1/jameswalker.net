@@ -139,7 +139,7 @@ Parser.prototype._parse = function (markup) {
 
 		// Todo, marker [todo][/todo], [m/marker][/m/marker]
 		.replace(/\[todo\](.+?)\[\/todo\]/g, '<div class="todo"><strong>TO DO: $1</strong></div>')
-		.replace(/\[marker](.+?)\[\/marker\]/g, '<strong class="marker" id="$1">$1</strong> ')
+		.replace(/\[marker](.+?)\[\/marker\]/g, '[m]$1[/m] ')
 		.replace(/\[m](.+?)\[\/m\]/g, '<strong class="marker" id="$1">$1</strong> ')
 
 		// Symbols
