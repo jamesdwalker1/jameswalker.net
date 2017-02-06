@@ -6,13 +6,13 @@ const configureAce = require('./aceConfig.js');
 module.exports = function ($scope, $http, Notes) {
     alert('To save changes, please enter your password at the top right.');
 
-    $scope.passwordColour = 'darkred';
+    $scope.passwordColour = 'white';
     $scope.passwordChange = function () {
         $http.post('api/check-password.php', { pw: $scope.password }).then(function (res) {
             if (res.data.correct) {
-                $scope.passwordColour = 'green';
+                $scope.passwordColour = '#2196f3';
             } else {
-                $scope.passwordColour = 'darkred';
+                $scope.passwordColour = 'white';
             }
         });
     }
