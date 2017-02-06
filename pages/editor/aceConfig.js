@@ -32,28 +32,6 @@ module.exports = function configureAce(type, manualReloadCallback) {
         readOnly: true
     });
     editor.commands.addCommand({
-        name: 'italics',
-        bindKey: {
-            win: 'Ctrl-I',
-            mac: 'Command-I'
-        },
-        exec: function (editor) {
-            editor.insert('[i]');
-        },
-        readOnly: true
-    });
-    editor.commands.addCommand({
-        name: 'finish italics',
-        bindKey: {
-            win: 'Ctrl-Shift-I',
-            mac: 'Command-Shift-I'
-        },
-        exec: function (editor) {
-            editor.insert('[/i]');
-        },
-        readOnly: true
-    });
-    editor.commands.addCommand({
         name: 'equation',
         bindKey: {
             win: 'Ctrl-M|Alt-=', // Alt-= is the shortcut for MS word
