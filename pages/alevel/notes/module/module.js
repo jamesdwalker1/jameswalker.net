@@ -5,7 +5,14 @@ module.exports = function ($scope, $routeParams, Notes, $timeout, $location) {
 
     let currentHTML = ''; // hold raw HTML (before MathJax does its stuff)
     function load() {
-        Notes.getHTML($routeParams.filename, function (html) {
+        // Accept both the raw filename and /Subject;Module-Name/ format
+        let filename = $routeParams.filename;
+        const isRawFilename = filename.indexOf('.jwmkp') > -1;
+        if (!isRawFilename) {
+            filename = filename.replace('-', ' ') + '.jwmkp';console.log(filename);
+        }
+
+        Notes.getHTML(filename, function (html) {
             if (html === currentHTML) {
                 return; // don't rerender if not changed
             }
