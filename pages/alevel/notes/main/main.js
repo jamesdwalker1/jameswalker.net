@@ -27,7 +27,7 @@ module.exports = function ($scope, $timeout, Notes, $location) {
         card.className = 'card card-clicked';
 
         $timeout(function () {
-            const rawFilename = module.filename;console.log(rawFilename);
+            const rawFilename = module.filename;
 
             // 'Subject;Module Name.jwmkp' -> 'Subject;Module-Name'
             const urlFriendlyName = rawFilename.replace(' ', '-').split('.')[0];
